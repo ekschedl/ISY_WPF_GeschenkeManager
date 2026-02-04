@@ -1,0 +1,111 @@
+﻿<Window x:Class="SchedlbergerEkaterina_WPF_.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchedlbergerEkaterina_WPF_"
+        mc:Ignorable="d"
+        Title="GeschenkeManager"
+        Height="600"
+        Width="600"
+        Background="#F9FAFB"
+        FontFamily="Segoe UI">
+
+    <DockPanel>
+
+        <Menu DockPanel.Dock="Top">
+
+            <MenuItem Header="Programm">
+                <MenuItem Header="Info" Click="Info_Click"/>
+                <MenuItem Header="Beenden" Click="Beenden_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Menu">
+                <MenuItem Header="Geschenke - Rechner" Click="OpenKindView_Click"/>
+                <MenuItem Header="Geschenkliste Exam" Click="OpenGeschenkViewExam_Click"/>
+                <MenuItem Header="Geschenkliste Freestyle" Click="OpenGeschenkView_Click"/>
+            </MenuItem>
+
+
+        </Menu>
+
+
+
+        <!-- STATUSBAR -->
+        <StatusBar DockPanel.Dock="Bottom" Height="30"
+           Background="#D1FAE5">
+            <TextBlock Text="Bereit"
+               Foreground="#065F46"
+               FontWeight="SemiBold"/>
+        </StatusBar>
+
+
+        <!-- HAUPTINHALT -->
+        <Grid>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <!-- Icon -->
+                <TextBlock Text="🎁  "
+                               FontSize="48"
+                               HorizontalAlignment="Center"/>
+                
+                <!-- Bild -->
+                <Image Source="Images/katze.jpg" Height="50" 
+                       HorizontalAlignment="Center"
+                       Margin="0,10,0,10"/>
+
+                <!-- Titel -->
+                <TextBlock Text="GeschenkeManager"
+                            FontSize="28"
+                            FontWeight="Bold"
+                            Foreground="#14532D"
+                            Margin="0,12,0,4"
+                            HorizontalAlignment="Center"/>
+
+                <!-- Beschreibung -->
+                <TextBlock Text="Geschenke nach Noten rechnen und Wunschlisten verwalten"
+                           FontSize="14"
+                           Foreground="#4B5563"
+                           TextAlignment="Center"
+                           Margin="0,0,0,18"/>
+
+                <!-- Funktionen -->
+                <Border Background="#D1FAE5"
+                            CornerRadius="12"
+                            Padding="14"
+                            MaxWidth="260"
+                            Margin="0,0,0,20">
+                    <!-- FUNKTIONEN (nur Icons!) -->
+                    <TextBlock Text="➕    ✏️    🗑️"
+                           FontSize="26"
+                           Margin="0,12"
+                           HorizontalAlignment="Center"/>
+                </Border>
+
+                <!-- Expander Beispiel -->
+                <Expander Header="Hier mehr Details" 
+                          MaxWidth="260"
+                          Margin="0,0,0,20">
+                    <Button>
+                        <!-- Content ist default Property-->
+                        <StackPanel>
+                            <Image Source="Images/katze.jpg" Height="50" />
+                            <CheckBox Content="Ich bin eine CheckBox" Margin="0,10,0,0"/>
+                        </StackPanel>
+                        <Button.ToolTip>
+                            <!--Property-Element Syntax-->
+                            <StackPanel>
+                                <TextBlock>Hallo ich bin ein ToolTip</TextBlock>
+                                <Image Source="Images/katze.jpg" Height="50" />
+                            </StackPanel>
+                        </Button.ToolTip>
+                    </Button>
+                </Expander>
+
+            </StackPanel>
+
+        </Grid>
+
+    </DockPanel>
+</Window>

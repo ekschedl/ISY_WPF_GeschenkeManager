@@ -164,6 +164,12 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
 
             Suchen();
 
+            // Automatisch das erste Geschenk auswählen, wenn Geschenke vorhanden sind
+            if (MeineGeschenkeFiltered.Count > 0 && AusgewGeschenk == null)
+            {
+                AusgewGeschenk = MeineGeschenkeFiltered[0];
+            }
+
             OnPropertyChanged(nameof(AnzahlGeschenke));
         }
 

@@ -22,8 +22,8 @@
 
             <MenuItem Header="Menu">
                 <MenuItem Header="Geschenke - Rechner" Click="OpenKindView_Click"/>
-                <MenuItem Header="Geschenkliste Exam" Click="OpenGeschenkViewExam_Click"/>
-                <MenuItem Header="Geschenkliste Freestyle" Click="OpenGeschenkView_Click"/>
+                <MenuItem Header="Geschenkliste" Click="OpenGeschenkViewExam_Click"/>
+            
             </MenuItem>
 
 

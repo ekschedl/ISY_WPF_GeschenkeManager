@@ -67,9 +67,6 @@
     </ApplicationDefinition>
     <Compile Include="ViewModels\GeschenkeViewModel.cs" />
     <Compile Include="ViewModels\KindViewModel.cs" />
-    <Compile Include="Views\GeschenkView.xaml.cs">
-      <DependentUpon>GeschenkView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\GeschenkViewExam.xaml.cs">
       <DependentUpon>GeschenkViewExam.xaml</DependentUpon>
     </Compile>
@@ -102,10 +99,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\GeschenkView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\GeschenkViewExam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -150,6 +143,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".gitignore" />
     <Content Include="Images\fahhrad.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

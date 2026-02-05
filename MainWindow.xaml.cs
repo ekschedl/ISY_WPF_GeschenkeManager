@@ -32,12 +32,6 @@ namespace SchedlbergerEkaterina_WPF_
             view.ShowDialog();
         }
 
-        private void OpenGeschenkView_Click(object sender, RoutedEventArgs e)
-        {
-            GeschenkView view = new GeschenkView();
-            view.ShowDialog();
-        }
-
         private void OpenGeschenkViewExam_Click(object sender, RoutedEventArgs e)
         {
             GeschenkViewExam view = new GeschenkViewExam();

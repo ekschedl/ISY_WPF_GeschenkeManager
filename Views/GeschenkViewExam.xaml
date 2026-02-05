@@ -15,6 +15,8 @@
         FontSize="14"
         FontFamily="Segoe UI">
 
+    <!--Converter als wiederverwendbare Ressourcen registrieren, damit sie im XAML verwendet werden können.-->
+
     <Window.Resources>
         <conv:IndexToNumberConverter x:Key="IndexToNumberConverter"/>
         <conv:EditModeToTextConverter x:Key="EditModeToTextConverter"/>

@@ -3,8 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SchedlbergerEkaterina_WPF_"
              StartupUri="MainWindow.xaml">
-    
 
+    <!--Zentraler Button-Style für die gesamte Anwendung
+        Einheitliches Aussehen für alle Buttons
+      
+        Gilt für alle Fenster der App
+        Einmal definiert, überall nutzbar
+     -->
     <Application.Resources>
 
         <!-- Basis-Button -->

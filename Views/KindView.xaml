@@ -14,7 +14,7 @@
 
 
 
-    <!-- noch nicht implementiert -->
+ 
 
     <DockPanel>
         <ToolBar DockPanel.Dock="Top">

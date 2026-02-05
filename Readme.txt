@@ -1,21 +1,21 @@
 
 Autorin:
 Ekaterina Schedlberger
-Prüfungsprojekt für: Interaktive Systeme
-Technologie: WPF • MVVM • Entity Framework
+Pr�fungsprojekt f�r: Interaktive Systeme
+Technologie: WPF � MVVM � Entity Framework
 
-✅Projektübersicht
+?Projekt�bersicht
 
-Das Prüfungsprojekt beinhaltet die Erstellung einer grafischen Benutzeroberfläche mit **WPF (Windows Presentation Foundation)** und **XAML (Extended Application Markup Language)**. Die Daten, welche in der GUI (Graphical User Interface) erstellt, angezeigt, geändert und gelöscht werden können, werden über **Entity Framework (EF – 6.x)** zur Verfügung gestellt.
+Das Pr�fungsprojekt beinhaltet die Erstellung einer grafischen Benutzeroberfl�che mit **WPF (Windows Presentation Foundation)** und **XAML (Extended Application Markup Language)**. Die Daten, welche in der GUI (Graphical User Interface) erstellt, angezeigt, ge�ndert und gel�scht werden k�nnen, werden �ber **Entity Framework (EF � 6.x)** zur Verf�gung gestellt.
 
-Im Rahmen des gesamten Projektes ist das Pattern **MVVM (Model-View-ViewModel)** zu berücksichtigen:
+Im Rahmen des gesamten Projektes ist das Pattern **MVVM (Model-View-ViewModel)** zu ber�cksichtigen:
 - **Model**: POCO-Klassen (Plain Old CLR Objects)
 - **View**: XAML-Dateien
 - **ViewModel**: Pro View eine Klasse mit ObservableCollection, Properties, Methoden
 
 -------------------------------------------------------------
 
-✅ Technologien
+? Technologien
 
 - **.NET Framework 4.7.2**
 - **WPF (Windows Presentation Foundation)**
@@ -27,72 +27,72 @@ Im Rahmen des gesamten Projektes ist das Pattern **MVVM (Model-View-ViewModel)**
 
 -------------------------------------------------------------
 
-✅ Projektstruktur
+? Projektstruktur
 
 SchedlbergerEkaterina_WPF_/
-│
-├── Commands/              # ICommand-Implementierungen
-│   ├── AddOrSaveCommand.cs
-│   ├── CopyGeschenkCommand.cs
-│   ├── DeleteGeschenkCommand.cs
-│   ├── EditGeschenkCommand.cs
-│   ├── NewListCommand.cs
-│   ├── SearchCommand.cs
-│   └── SpeichernCommand.cs
-│
-├── Converters/            # Value Converter für XAML
-│   ├── EditModeToTextConverter.cs
-│   └── IndexToNumberConverter.cs
-│
-├── Data/                  # Entity Framework Context und Initialisierung
-│   ├── DbInitializer.cs   # Seeding der Beispieldaten beim App-Start
-│   └── GeschenkContext.cs # DbContext für Entity Framework
-│
-├── Images/                # Bildressourcen
-│   ├── bike.jpg
-│   ├── geld.jpg
-│   ├── katze.jpg
-│   ├── kosmetik.jpg
-│   └── lego.jpg
-│
-├── Models/                # Model-Klassen (POCO)
-│   ├── Geschenk.cs        # Geschenk-Entity
-│   ├── GeschenkeRepository.cs  # Repository-Pattern für CRUD-Operationen
-│   └── Kind.cs            # Kind-Entity mit INotifyPropertyChanged
-│
-├── Properties/            # Projekt-Eigenschaften
-│
-├── ViewModels/            # ViewModel-Klassen
-│   ├── GeschenkeViewModel.cs  # ViewModel für Geschenk-Verwaltung
-│   └── KindViewModel.cs        # ViewModel für Kind-Ansicht
-│
-├── Views/                 # XAML-Views
-│   ├── AddGeschenkDialog.xaml      # Dialog zum Hinzufügen von Geschenken
-│   ├── GeschenkView.xaml           # Geschenk-Verwaltung (Freestyle, zum Üben, experementieren)
-│   ├── GeschenkViewExam.xaml       # Geschenk-Verwaltung (Exam-Version)
-│   └── KindView.xaml               # Geschenke-Rechner nach Noten
-│
-├── App.xaml               # Application-Definition mit Styles
-├── App.xaml.cs            # Application-Code-Behind (DbInitializer.Seed())
-├── MainWindow.xaml        # Hauptfenster mit Navigation
-├── MainWindow.xaml.cs     # MainWindow-Code-Behind
-│
-└── App.config             # Konfiguration (Connection String für LocalDB)
+?
+??? Commands/              # ICommand-Implementierungen
+?   ??? AddOrSaveCommand.cs
+?   ??? CopyGeschenkCommand.cs
+?   ??? DeleteGeschenkCommand.cs
+?   ??? EditGeschenkCommand.cs
+?   ??? NewListCommand.cs
+?   ??? SearchCommand.cs
+?   ??? SpeichernCommand.cs
+?
+??? Converters/            # Value Converter f�r XAML
+?   ??? EditModeToTextConverter.cs
+?   ??? IndexToNumberConverter.cs
+?
+??? Data/                  # Entity Framework Context und Initialisierung
+?   ??? DbInitializer.cs   # Seeding der Beispieldaten beim App-Start
+?   ??? GeschenkContext.cs # DbContext f�r Entity Framework
+?
+??? Images/                # Bildressourcen
+?   ??? bike.jpg
+?   ??? geld.jpg
+?   ??? katze.jpg
+?   ??? kosmetik.jpg
+?   ??? lego.jpg
+?
+??? Models/                # Model-Klassen (POCO)
+?   ??? Geschenk.cs        # Geschenk-Entity
+?   ??? GeschenkeRepository.cs  # Repository-Pattern f�r CRUD-Operationen
+?   ??? Kind.cs            # Kind-Entity mit INotifyPropertyChanged
+?
+??? Properties/            # Projekt-Eigenschaften
+?
+??? ViewModels/            # ViewModel-Klassen
+?   ??? GeschenkeViewModel.cs  # ViewModel f�r Geschenk-Verwaltung
+?   ??? KindViewModel.cs        # ViewModel f�r Kind-Ansicht
+?
+??? Views/                 # XAML-Views
+?   ??? AddGeschenkDialog.xaml      # Dialog zum Hinzuf�gen von Geschenken
+?   ??? GeschenkView.xaml           # Geschenk-Verwaltung (Freestyle, zum �ben, experementieren)
+?   ??? GeschenkViewExam.xaml       # Geschenk-Verwaltung (Exam-Version)
+?   ??? KindView.xaml               # Geschenke-Rechner nach Noten
+?
+??? App.xaml               # Application-Definition mit Styles
+??? App.xaml.cs            # Application-Code-Behind (DbInitializer.Seed())
+??? MainWindow.xaml        # Hauptfenster mit Navigation
+??? MainWindow.xaml.cs     # MainWindow-Code-Behind
+?
+??? App.config             # Konfiguration (Connection String f�r LocalDB)
 -------------------------------------------------------------
-**Workflow: Button-Klick bis Datenbank und zurück**
+**Workflow: Button-Klick bis Datenbank und zur�ck**
 
-Beispiel: Benutzer klickt auf Löschen-Button
+Beispiel: Benutzer klickt auf L�schen-Button
 
 1. Button-Klick im View (GeschenkViewExam.xaml)
    - Button hat Command-Binding: Command="{Binding DeleteCommand}"
    - WPF ruft automatisch Command.Execute auf
 
-2. Command wird ausgeführt (Commands/DeleteGeschenkCommand.cs)
+2. Command wird ausgef�hrt (Commands/DeleteGeschenkCommand.cs)
    - DeleteGeschenkCommand.Execute wird aufgerufen
    - Command ruft ViewModel-Methode auf: _vm.Delete()
 
-3. ViewModel führt Logik aus (ViewModels/GeschenkeViewModel.cs)
-   - Delete() prüft ob Geschenk ausgewählt ist
+3. ViewModel f�hrt Logik aus (ViewModels/GeschenkeViewModel.cs)
+   - Delete() pr�ft ob Geschenk ausgew�hlt ist
    - Ruft Repository-Methode auf: _rep.RemoveGeschenk(AusgewGeschenk.GeschenkId)
    - Ruft LoadData() auf um Daten neu zu laden
 
@@ -100,27 +100,27 @@ Beispiel: Benutzer klickt auf Löschen-Button
    - RemoveGeschenk verwendet DbContext
    - Findet Geschenk in Datenbank: _context.Geschenke.FirstOrDefault()
    - Entfernt Geschenk: _context.Geschenke.Remove(geschenk)
-   - Speichert Änderungen: _context.SaveChanges()
+   - Speichert �nderungen: _context.SaveChanges()
 
 5. DbContext kommuniziert mit Datenbank (Data/GeschenkContext.cs)
-   - Entity Framework übersetzt C#-Code in SQL
-   - Führt DELETE-Befehl in SQL Server LocalDB aus
-   - Daten werden aus Datenbank gelöscht
+   - Entity Framework �bersetzt C#-Code in SQL
+   - F�hrt DELETE-Befehl in SQL Server LocalDB aus
+   - Daten werden aus Datenbank gel�scht
 
 6. ViewModel aktualisiert ObservableCollection
    - LoadData() ruft Repository.ReadAll() auf
-   - Lädt alle Geschenke neu aus Datenbank
-   - MeineGeschenke.Clear() und MeineGeschenke.Add() für jedes Geschenk
-   - ObservableCollection löst automatisch CollectionChanged Event aus
+   - L�dt alle Geschenke neu aus Datenbank
+   - MeineGeschenke.Clear() und MeineGeschenke.Add() f�r jedes Geschenk
+   - ObservableCollection l�st automatisch CollectionChanged Event aus
 
 7. UI wird automatisch aktualisiert (durch DataBinding)
-   - WPF hört auf CollectionChanged Event
+   - WPF h�rt auf CollectionChanged Event
    - ListBox.ItemsSource ist an MeineGeschenkeFiltered gebunden
    - ListBox zeigt automatisch aktualisierte Liste an
-   - Gelöschtes Geschenk verschwindet aus der Anzeige
+   - Gel�schtes Geschenk verschwindet aus der Anzeige
 
 8. StatusBar zeigt Feedback
-   - UserMessage wird gesetzt: "🗑️ Geschenk wurde gelöscht"
+   - UserMessage wird gesetzt: "??? Geschenk wurde gel�scht"
    - StatusBar ist an UserMessage gebunden
    - Nachricht wird automatisch angezeigt
 
@@ -128,44 +128,44 @@ Beispiel: Benutzer klickt auf Löschen-Button
 
 Variante 1 - Command-Binding (MVVM-konform):
 - Button Command="{Binding DeleteCommand}"
-- Kein Code-Behind nötig
+- Kein Code-Behind n�tig
 - Logik komplett im ViewModel
-- Beispiel: Löschen, Kopieren, Bearbeiten Buttons
+- Beispiel: L�schen, Kopieren, Bearbeiten Buttons
 
 Variante 2 - Click-Event-Handler (Code-Behind):
 - Button Click="AddGeschenkDialog_Click"
 - Handler in GeschenkViewExam.xaml.cs
-- Wird verwendet für Dialog-Öffnung, Datei-Auswahl
-- Beispiel: Neu-Button öffnet Dialog, Bild-Auswahl 
+- Wird verwendet f�r Dialog-�ffnung, Datei-Auswahl
+- Beispiel: Neu-Button �ffnet Dialog, Bild-Auswahl 
 
 -------------------------------------------------------------
 
-✅ Aufgabe 1 – WPF GUI 
+? Aufgabe 1 � WPF GUI 
 
-Menüleiste
+Men�leiste
 - Datei: Startseite, Neue Geschenke-Zentrale, Informationen, Beenden
-- Bearbeiten: Neu, Ändern, Kopieren, Löschen
+- Bearbeiten: Neu, �ndern, Kopieren, L�schen
 - Implementiert in: GeschenkViewExam.xaml
 
 Symbolleiste (ToolBar)
-- Schnellzugriff auf häufig genutzte Funktionen: Neu, Kopieren, Löschen, Beenden
+- Schnellzugriff auf h�ufig genutzte Funktionen: Neu, Kopieren, L�schen, Beenden
 - Implementiert in: GeschenkViewExam.xaml
 
 StatusBar
 - Zeigt die Anzahl der Geschenke (AnzahlGeschenke)
-- Zeigt Benutzer-Nachrichten (UserMessage) für Feedback bei Aktionen
+- Zeigt Benutzer-Nachrichten (UserMessage) f�r Feedback bei Aktionen
 - Implementiert in: GeschenkViewExam.xaml
 - Datenbindung an GeschenkeViewModel Properties
 
 Bedienung
-- Navigation: Über Menü oder Toolbar zu verschiedenen Funktionen
+- Navigation: �ber Men� oder Toolbar zu verschiedenen Funktionen
 - Auswahl: Klick auf Geschenk in der Liste zeigt Details rechts an
-- Eingabe: Formularfelder für neue/bearbeitete Geschenke
-- Feedback: StatusBar informiert über aktuelle Aktionen und Anzahl
+- Eingabe: Formularfelder f�r neue/bearbeitete Geschenke
+- Feedback: StatusBar informiert �ber aktuelle Aktionen und Anzahl
 
 -------------------------------------------------------------
 
-✅ Aufgabe 2 – Entity & DbContext
+? Aufgabe 2 � Entity & DbContext
 
 Model-Klasse: Geschenk.cs, Properties/Eigenschaften implementiert:
 - GeschenkId: int (Primary Key) -Entity Framework erkennt GeschenkId automatisch als Primary Key
@@ -186,16 +186,16 @@ Datentypen: 5 unterschiedliche Datentypen
 DbContext-Klasse: GeschenkContext.cs
 - Klasse erbt von DbContext (Entity Framework)
 - Verwendet NuGet-Paket Entity Framework 6.5.1
-- Enthält DbSet Geschenke vom Typ Geschenk
-- DbSet ermöglicht Datenbankzugriff auf Geschenk-Entitäten
+- Enth�lt DbSet Geschenke vom Typ Geschenk
+- DbSet erm�glicht Datenbankzugriff auf Geschenk-Entit�ten
 
 Default-Werte: DbInitializer.cs
-- Erzeugt beim App-Start automatisch 5 Beispieldaten über Seed-Methode
+- Erzeugt beim App-Start automatisch 5 Beispieldaten �ber Seed-Methode
 - Wird in App.xaml.cs OnStartup aufgerufen
 
 -------------------------------------------------------------
 
-✅ Aufgabe 3 – Repository / CRUD
+? Aufgabe 3 � Repository / CRUD
 
 Repository-Klasse: GeschenkeRepository.cs
 Repository = CRUD + EF + SaveChanges (Create, Read, Update, Delete, Copy, Search)
@@ -210,45 +210,45 @@ Methoden:
 - SearchByName - Sucht nach Name
 - Search mit Predicate - Generische Suche mit beliebiger Property
 
-Getestet: Über GeschenkeViewModel und UI in GeschenkViewExam
+Getestet: �ber GeschenkeViewModel und UI in GeschenkViewExam
 
 -------------------------------------------------------------
 
-✅ Aufgabe 4 – ViewModel
+? Aufgabe 4 � ViewModel
 
 ViewModel-Klasse: GeschenkeViewModel.cs
 
-ObservableCollection: sorgt für automatische UI-Updates bei Änderungen
-- MeineGeschenke: Enthält alle Geschenke aus Datenbank 
-- MeineGeschenkeFiltered: Enthält gefilterte Geschenke für Anzeige 
+ObservableCollection: sorgt f�r automatische UI-Updates bei �nderungen
+- MeineGeschenke: Enth�lt alle Geschenke aus Datenbank 
+- MeineGeschenkeFiltered: Enth�lt gefilterte Geschenke f�r Anzeige 
 
 SelectedItem-Property:
-- AusgewGeschenk: Ausgewähltes Geschenk in der Liste, Typ Geschenk
-- Implementiert PropertyChanged-Notification über OnPropertyChanged
+- AusgewGeschenk: Ausgew�hltes Geschenk in der Liste, Typ Geschenk
+- Implementiert PropertyChanged-Notification �ber OnPropertyChanged
 - Wird an ListBox.SelectedItem gebunden
-- Bei Änderung wird Detailansicht automatisch aktualisiert
+- Bei �nderung wird Detailansicht automatisch aktualisiert
 
-Properties für die View:
+Properties f�r die View:
 - Formularfelder: NeuerName, NeuePrioritaet, NeuesBild, IstWichtig, Preis
-- Suchtext: Suchtext mit automatischem Suchen bei Änderung
+- Suchtext: Suchtext mit automatischem Suchen bei �nderung
 - Status: UserMessage, AnzahlGeschenke als berechnete Property
-- Modus: IstEditModus, true bedeutet bearbeiten, false bedeutet neu hinzufügen
+- Modus: IstEditModus, true bedeutet bearbeiten, false bedeutet neu hinzuf�gen
 - Alle Properties implementieren PropertyChanged-Notification
 
-Methoden für die View:
-- LoadData: Lädt alle Geschenke aus Repository
-- Add: Fügt neues Geschenk hinzu
-- Delete: Löscht ausgewähltes Geschenk
-- Copy: Kopiert ausgewähltes Geschenk
+Methoden f�r die View:
+- LoadData: L�dt alle Geschenke aus Repository
+- Add: F�gt neues Geschenk hinzu
+- Delete: L�scht ausgew�hltes Geschenk
+- Copy: Kopiert ausgew�hltes Geschenk
 - EditStart: Startet Bearbeitungsmodus
-- SaveEdit: Speichert Änderungen
+- SaveEdit: Speichert �nderungen
 - Suchen: Filtert Geschenke nach Suchtext
 - SucheSuperWichtige: Filtert nach Prioritaet
 - ZeigeAlle: Zeigt alle Geschenke wieder an
-- NewList: Löscht alle Geschenke
+- NewList: L�scht alle Geschenke
 - ClearForm: Leert Formularfelder
 
-Commands für UI-Aktionen MVVM-Pattern:
+Commands f�r UI-Aktionen MVVM-Pattern:
 - DeleteCommand, CopyCommand, EditCommand, AddOrSaveCommand, SearchCommand, NewListCommand
 - Commands werden im Konstruktor initialisiert
 - Alle Commands implementieren ICommand-Interface
@@ -258,13 +258,13 @@ MVVM-Pattern Umsetzung:
 - INotifyPropertyChanged: Klasse implementiert Interface
 - PropertyChanged Event vorhanden
 - OnPropertyChanged Methode vorhanden
-- View bindet an ViewModel-Properties, kein Code-Behind für Logik
+- View bindet an ViewModel-Properties, kein Code-Behind f�r Logik
 - ViewModel ruft Repository-Methoden auf, Trennung von Datenzugriff
-- Commands für UI-Aktionen statt Event-Handler im Code-Behind
+- Commands f�r UI-Aktionen statt Event-Handler im Code-Behind
 
 -------------------------------------------------------------
 
-✅ Aufgabe 5 – Itemscontrol & Details 
+? Aufgabe 5 � Itemscontrol & Details 
 
 Implementiert in: GeschenkViewExam.xaml (nicht MainWindow)
 
@@ -272,26 +272,26 @@ ItemsControl zur Anzeige der Liste:
 - ListBox in GeschenkViewExam.xaml
 - ItemsSource gebunden an MeineGeschenkeFiltered
 - SelectedItem gebunden an AusgewGeschenk
-- ItemTemplate zeigt Name und Prioritaet für jedes Geschenk
+- ItemTemplate zeigt Name und Prioritaet f�r jedes Geschenk
 
 Detailanzeige bei Auswahl:
-- Wenn Eintrag in ListBox ausgewählt wird, wird AusgewGeschenk gesetzt
+- Wenn Eintrag in ListBox ausgew�hlt wird, wird AusgewGeschenk gesetzt
 - Details werden rechts in GroupBox angezeigt
 - Zeigt Name, ID, Datum, IstWichtig, Preis, Bild
-- Buttons für Aktionen: Kopieren, Bearbeiten, Löschen
+- Buttons f�r Aktionen: Kopieren, Bearbeiten, L�schen
 
 StatusBar mit sinnvollen Informationen:
 - Zeigt AnzahlGeschenke: Geschenke total: X
-- Zeigt UserMessage: Feedback bei Aktionen wie Hinzufügen, Löschen, Kopieren
+- Zeigt UserMessage: Feedback bei Aktionen wie Hinzuf�gen, L�schen, Kopieren
 - Beide per DataBinding an ViewModel-Properties gebunden
 
 Verbindungen zwischen Klassen:
 
 Repository zu DbContext:
 - GeschenkeRepository.cs Zeile 17: _context = new GeschenkContext06()
-  Repository erstellt DbContext im Konstruktor für Datenbankzugriff
-- Repository verwendet DbSet Geschenke für Datenbankzugriff
-- SaveChanges speichert Änderungen in der Datenbank
+  Repository erstellt DbContext im Konstruktor f�r Datenbankzugriff
+- Repository verwendet DbSet Geschenke f�r Datenbankzugriff
+- SaveChanges speichert �nderungen in der Datenbank
 
 ViewModel zu Repository:
 - GeschenkeViewModel.cs Zeile 23: private readonly GeschenkeRepository _rep = new GeschenkeRepository()
@@ -306,53 +306,53 @@ View zu ViewModel:
 
 -------------------------------------------------------------
 
-✅ Aufgabe 6 – Neues Objekt anlegen
+? Aufgabe 6 � Neues Objekt anlegen
 
 Dialogfenster zum Anlegen eines neuen Objekts:
 - AddGeschenkDialog.xaml: Separates Window als Modal-Dialog
-- Enthält Formularfelder für Name, Prioritaet, IstWichtig, Preis, Bild
-- Dialog wird über AddGeschenkDialog_Click geöffnet
+- Enth�lt Formularfelder f�r Name, Prioritaet, IstWichtig, Preis, Bild
+- Dialog wird �ber AddGeschenkDialog_Click ge�ffnet
 
-Öffnen über Menüpunkt Neu:
+�ffnen �ber Men�punkt Neu:
 - GeschenkViewExam.xaml : 
 MenuItem Header="_Neu" Click="AddGeschenkDialog_Click"
-- GeschenkViewExam.xaml.cs: AddGeschenkDialog_Click öffnet den Dialog
+- GeschenkViewExam.xaml.cs: AddGeschenkDialog_Click �ffnet den Dialog
 
-Öffnen über Toolbar-Button Neu:
+�ffnen �ber Toolbar-Button Neu:
 - GeschenkViewExam.xaml:
 Button Content="+ Neu" Click="AddGeschenkDialog_Click"
-- Ruft dieselbe Methode wie Menüpunkt auf
+- Ruft dieselbe Methode wie Men�punkt auf
 
-Speichern fügt Objekt über Repository / ViewModel hinzu:
+Speichern f�gt Objekt �ber Repository / ViewModel hinzu:
 - AddGeschenkDialog.xaml.cs Save_Click: ruft vm.Add() auf
 - GeschenkeViewModel.Add(): erstellt neues Geschenk-Objekt
 - GeschenkeViewModel.Add(): ruft _rep.AddGeschenk auf
-- GeschenkeRepository.AddGeschenk(): fügt Objekt in Datenbank ein via DbContext
-- Nach Dialog-Schließen: GeschenkViewExam.xaml.cs ruft vm.LoadData() auf
+- GeschenkeRepository.AddGeschenk(): f�gt Objekt in Datenbank ein via DbContext
+- Nach Dialog-Schlie�en: GeschenkViewExam.xaml.cs ruft vm.LoadData() auf
 
 Neues Objekt erscheint im ItemsControl:
-- LoadData() lädt alle Geschenke neu aus Repository
+- LoadData() l�dt alle Geschenke neu aus Repository
 - MeineGeschenkeFiltered wird aktualisiert
 - ListBox ItemsSource ist an MeineGeschenkeFiltered gebunden
 - Neues Geschenk erscheint automatisch in der Liste
 
 -------------------------------------------------------------
 
-✅ Aufgabe 7 – Suchen
+? Aufgabe 7 � Suchen
 
 Suchfunktion in der GUI vorhanden:
 - TextBox in GeschenkViewExam.xaml
 - Text gebunden an Suchtext mit UpdateSourceTrigger PropertyChanged
 - Bei jeder Eingabe wird automatisch gesucht
 
-Filterung der Objekte möglich:
+Filterung der Objekte m�glich:
 - GeschenkeViewModel.Suchen ruft Repository.SearchByName auf
 - Aktualisiert MeineGeschenkeFiltered
 - ListBox zeigt nur gefilterte Geschenke an
 
 Umsetzung der Suchfunktion:
 - TextBox-Eingabe wird an ViewModel-Property Suchtext gebunden
-- Bei Änderung wird Suchen automatisch aufgerufen
+- Bei �nderung wird Suchen automatisch aufgerufen
 - ViewModel ruft Repository-Methode auf
 - Repository filtert Daten aus Datenbank
 - Gefilterte Liste wird in MeineGeschenkeFiltered gespeichert
@@ -361,71 +361,71 @@ Umsetzung der Suchfunktion:
 Zwei Suchmethoden im Repository:
 
 SearchByName: Sucht spezifisch nach Name-Property
-- Einfache Implementierung für TextBox-Suche
-- Verwendet in ViewModel.Suchen für normale Suche
+- Einfache Implementierung f�r TextBox-Suche
+- Verwendet in ViewModel.Suchen f�r normale Suche
 
 Search mit Predicate: Generische Suche mit beliebiger Property
 - Flexibel: kann nach jeder Property suchen
 - Verwendet Lambda-Ausdruck: g => g.Prioritaet == "super wichtig"
-- Verwendet für Button Super wichtige Geschenke
+- Verwendet f�r Button Super wichtige Geschenke
 
 Warum zwei Suchmethoden:
-- Demonstriert verschiedene Suchansätze
-- Zeigt Lambda-Ausdrücke und Predicates in der Praxis
-- zum Üben
+- Demonstriert verschiedene Suchans�tze
+- Zeigt Lambda-Ausdr�cke und Predicates in der Praxis
+- zum �ben
 
 -------------------------------------------------------------
 
-✅ Aufgabe 8 – Löschen
+? Aufgabe 8 � L�schen
 
 
 DeleteGeschenkCommand.cs ruft GeschenkeViewModel.Delete auf
 
 Repository:
-- GeschenkeRepository.RemoveGeschenk löscht einzelnes Geschenk aus Datenbank
-- GeschenkeRepository.DeleteAll löscht alle Geschenke (wird von NewListCommand verwendet)
+- GeschenkeRepository.RemoveGeschenk l�scht einzelnes Geschenk aus Datenbank
+- GeschenkeRepository.DeleteAll l�scht alle Geschenke (wird von NewListCommand verwendet)
 
 UI-Update:
 - Nach LoadData wird MeineGeschenkeFiltered aktualisiert
 - Objekt verschwindet aus Liste
 
-Verfügbar:
-- Über Menü Bearbeiten Löschen (einzelnes Geschenk)
-- Toolbar-Button Löschen (einzelnes Geschenk)
+Verf�gbar:
+- �ber Men� Bearbeiten L�schen (einzelnes Geschenk)
+- Toolbar-Button L�schen (einzelnes Geschenk)
 - Button in Detailansicht (einzelnes Geschenk)
-- Menü Datei → Neue Geschenke-Zentrale (löscht alle via DeleteAll)
+- Men� Datei ? Neue Geschenke-Zentrale (l�scht alle via DeleteAll)
 
 -------------------------------------------------------------
 
-✅ Aufgabe 9 – Kopieren
+? Aufgabe 9 � Kopieren
 
 - CopyGeschenkCommand.cs ruft GeschenkeViewModel.Copy auf
-- Verfügbar über Menü Bearbeiten, Toolbar-Button und Button in Detailansicht
+- Verf�gbar �ber Men� Bearbeiten, Toolbar-Button und Button in Detailansicht
 
 Neues Objekt wird aus bestehendem erzeugt:
-- GeschenkeViewModel.Copy prüft ob Geschenk ausgewählt ist
-- Ruft Repository.Copy auf und übergibt ausgewähltes Geschenk
+- GeschenkeViewModel.Copy pr�ft ob Geschenk ausgew�hlt ist
+- Ruft Repository.Copy auf und �bergibt ausgew�hltes Geschenk
 - Repository erstellt neues Geschenk-Objekt mit kopierten Properties
 - Name wird erweitert: original.Name + " (Kopie)"
 - Neues Erstellungsdatum wird gesetzt: DateTime.Now
 - GeschenkId wird nicht kopiert, wird automatisch von Entity Framework vergeben
 
 Umsetzung der Kopierfunktion:
-- Repository.Copy erstellt Kopie mit allen Properties außer GeschenkId
+- Repository.Copy erstellt Kopie mit allen Properties au�er GeschenkId
 - Repository speichert Kopie in Datenbank via AddGeschenk
-- ViewModel lädt Daten neu mit LoadData
+- ViewModel l�dt Daten neu mit LoadData
 - Kopie wird automatisch in ListBox angezeigt
-- Kopie wird automatisch als ausgewähltes Geschenk gesetzt
-- StatusBar zeigt Bestätigungsmeldung
+- Kopie wird automatisch als ausgew�hltes Geschenk gesetzt
+- StatusBar zeigt Best�tigungsmeldung
 
 -------------------------------------------------------------
 
-✅ Aufgabe 10 – Tooltip & weitere Controls
+? Aufgabe 10 � Tooltip & weitere Controls
 
 Tooltip:
 - TextBox in GeschenkViewExam.xaml hat ToolTip
 - Text: Suche nach Geschenken
-- MainWIndow hat ToolTip für Expander
+- MainWIndow hat ToolTip f�r Expander
 
 CheckBox:
 -  AddGeschenkDialog.xaml
@@ -434,11 +434,11 @@ CheckBox:
 
 GroupBox:
 - Zwei GroupBox-Controls in GeschenkViewExam.xaml
-- Eine für Ausgewähltes Geschenk
-- Eine für Neues Geschenk
+- Eine f�r Ausgew�hltes Geschenk
+- Eine f�r Neues Geschenk
 
 Slider:
-- In KindView.xaml für Durchschnittsnote
+- In KindView.xaml f�r Durchschnittsnote
 - Minimum 1, Maximum 5
 
 Expander:
@@ -446,56 +446,56 @@ Expander:
 
 -------------------------------------------------------------
 
-✅ Aufgabe 11 – Styles
+? Aufgabe 11 � Styles
 
 Styles definiert: App.xaml
-- Application.Resources enthält mehrere Button-Styles
+- Application.Resources enth�lt mehrere Button-Styles
 
 Button-Styles:
-- BaseButtonStyle - Basis-Style für alle Buttons
+- BaseButtonStyle - Basis-Style f�r alle Buttons
 - DefaultButtonStyle - Grauer Gradient
-- PrimaryButtonStyle - Grüner Gradient
+- PrimaryButtonStyle - Gr�ner Gradient
 - SecondaryButtonStyle - Blauer Gradient
 - DangerButtonStyle - Roter Gradient
 
 Menu-Styles:
-- Style für Menu und MenuItem
-- Grünes Farbschema
+- Style f�r Menu und MenuItem
+- Gr�nes Farbschema
 
 Verwendung:
 - Buttons in Views verwenden StaticResource PrimaryButtonStyle
 
 -------------------------------------------------------------
 
-✅ Wichtige Design-Entscheidungen
+? Wichtige Design-Entscheidungen
 
 
-Repository-Pattern: Zentralisierter Datenzugriff über GeschenkeRepository
+Repository-Pattern: Zentralisierter Datenzugriff �ber GeschenkeRepository
 - Trennung von Datenzugriff und Business-Logik
 - Einfache Testbarkeit und Wiederverwendbarkeit
 
 Zwei Suchmethoden: SearchByName und Search mit Predicate
-- Demonstriert verschiedene Suchansätze
-- Erfüllt Anforderung beliebige Property als Argument
+- Demonstriert verschiedene Suchans�tze
+- Erf�llt Anforderung beliebige Property als Argument
 
-ObservableCollection statt List: Automatische UI-Updates bei Änderungen
-- MVVM-Standard für Collections
+ObservableCollection statt List: Automatische UI-Updates bei �nderungen
+- MVVM-Standard f�r Collections
 - WPF Data Binding funktioniert nahtlos
 
-DbInitializer für Seeding: Separate Klasse für Beispieldaten
-- Wird einmalig beim App-Start ausgeführt
-- Prüft ob Daten bereits vorhanden sind
+DbInitializer f�r Seeding: Separate Klasse f�r Beispieldaten
+- Wird einmalig beim App-Start ausgef�hrt
+- Pr�ft ob Daten bereits vorhanden sind
 
 Commands statt Event Handlers: MVVM-konform
 - Entkopplung von View und ViewModel
 - Testbarkeit der Logik ohne UI
 
-Automatische Auswahl: Beim Start wird erstes Geschenk ausgewählt
+Automatische Auswahl: Beim Start wird erstes Geschenk ausgew�hlt
 - Bessere User Experience
 - Details werden sofort angezeigt
 
-Zwei Varianten zum Hinzufügen: Dialog und Inline-Formular
+Zwei Varianten zum Hinzuf�gen: Dialog und Inline-Formular
 - Demonstriert verschiedene WPF-Patterns
-- Flexibilität für verschiedene Anwendungsfälle
+- Flexibilit�t f�r verschiedene Anwendungsf�lle
 
 

@@ -10,11 +10,11 @@ namespace SchedlbergerEkaterina_WPF_.Models
     //Repository = CRUD + EF + SaveChanges
     internal class GeschenkeRepository
     {
-        private readonly GeschenkContext06 _context;
+        private readonly GeschenkContext00 _context;
 
         public GeschenkeRepository()
         {
-            _context = new GeschenkContext06();
+            _context = new GeschenkContext00();
         }
 
         // READ

@@ -10,7 +10,7 @@
 
         Title="🎁 Geschenke-Zentrale"
         Height="770"
-        Width="930"
+        Width="1100"
         Background="#FFF3F4F6"
         FontSize="14"
         FontFamily="Segoe UI">
@@ -98,7 +98,12 @@
                                 Margin="0,10,0,10"/>
 
 
-                <!-- Liste -->
+                <!-- Liste
+                    ItemsSource
+                    → Liste aller Geschenke, die angezeigt werden
+
+                    SelectedItem
+                    → das aktuell ausgewählte Geschenk in der Liste-->
                 <ListBox Grid.Row="1"
                                     ItemsSource="{Binding MeineGeschenkeFiltered}"
                                     SelectedItem="{Binding AusgewGeschenk}"

@@ -10,30 +10,28 @@ using System.Windows.Input;
 
 namespace SchedlbergerEkaterina_WPF_.Commands
 {
-    // Manuelle Implementierung von ICommand
-    // Der Command kapselt die Aktion „Senden“
+    // Command zum Speichern - kapselt die "Senden"-Aktion
     internal class SpeichernCommand : ICommand
     {
-        // auf dessen Daten der Command arbeitet
-        // Referenz auf das Model
+        // Referenz auf das Kind-Model
         private readonly Kind _kind;
 
         // Konstruktor bekommt das Model übergeben
         public SpeichernCommand(Kind kind)
         {
+            // Model speichern
             this._kind = kind;
 
-            // hören auf PropertyChanged vom Model,
-            // damit der Button automatisch neu geprüft wird,
-            // wenn sich Daten ändern
+            // Auf PropertyChanged vom Model hören,
+            // damit Button automatisch neu geprüft wird
             _kind.PropertyChanged += Kind_PropertyChanged;
         }
 
-
-        // WPF hört auf dieses Event,
-        // um CanExecute erneut aufzurufen
+        // Event für Änderungen der Ausführbarkeit
+        // WPF hört darauf, um CanExecute erneut aufzurufen
         public event EventHandler CanExecuteChanged;
 
+        // Prüft, ob Command ausgeführt werden kann
         // Button deaktiviert bei Schulnote 5
         public bool CanExecute(object parameter)
         {
@@ -44,10 +42,10 @@ namespace SchedlbergerEkaterina_WPF_.Commands
         }
 
         // Wird beim Klick auf den Button ausgeführt
-        // Der Command greift nur auf das Model zu
-        //keine Logik im View
+        // Command greift nur auf das Model zu - keine Logik im View
         public void Execute(object parameter)
         {
+            // Daten in MessageBox anzeigen
             MessageBox.Show(
                 "Name: " + _kind.Vorname + "\n" +
                 "Note: " + _kind.Durchschnittsnote.ToString("F1") + "\n" +
@@ -57,18 +55,17 @@ namespace SchedlbergerEkaterina_WPF_.Commands
                 MessageBoxImage.Information
             );
         }
-        // Diese Methode wird aufgerufen,
-        // wenn sich eine Property im Model ändert
+        // Wird aufgerufen, wenn sich eine Property im Model ändert
         private void Kind_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            // Reagiert nur auf Änderungen der GerundeteNote,
-            // da sie für CanExecute relevant ist
+            // Reagiert nur auf Änderungen der GerundeteNote oder ElternEinverstanden,
+            // da sie für CanExecute relevant sind
             if (e.PropertyName == nameof(Kind.GerundeteNote)
                || e.PropertyName == nameof(Kind.ElternEinverstanden))
             {
+                // Event auslösen, damit WPF CanExecute neu prüft
                 CanExecuteChanged?.Invoke(this, EventArgs.Empty);
             }
-
         }
     }
 }

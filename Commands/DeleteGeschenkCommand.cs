@@ -8,16 +8,19 @@ using System.Windows.Input;
 
 namespace SchedlbergerEkaterina_WPF_.Commands
 {
+    // Command zum Löschen eines Geschenks
     internal class DeleteGeschenkCommand : ICommand
     {
+        // ViewModel-Referenz
         private readonly GeschenkeViewModel _vm;
 
+        // Konstruktor
         public DeleteGeschenkCommand(GeschenkeViewModel vm)
         {
             _vm = vm;
 
         }
-
+        // Event für Änderungen der Ausführbarkeit
         public event EventHandler CanExecuteChanged;
 
         // Commands bleiben bewusst immer aktiv.
@@ -25,12 +28,14 @@ namespace SchedlbergerEkaterina_WPF_.Commands
         // um dem Benutzer eine verständliche Statusmeldung zu geben.
         public bool CanExecute(object parameter)
         {
+            // Immer erlaubt - Prüfung passiert im ViewModel
             return true;
         }
 
+        // Führt den Command aus
         public void Execute(object parameter)
         {
-            _vm.Delete();
+            _vm.Delete(); // Geschenk löschen
         }
     }
 }

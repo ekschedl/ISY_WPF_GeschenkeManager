@@ -1,0 +1,90 @@
+🟢 Aufgabe 1 – GUI (10 Punkte)
+•	Menüleiste vorhanden
+o	Datei → Neu
+o	Datei → Beenden
+o	Bearbeiten → Ausschneiden
+o	Bearbeiten → Kopieren
+•	Symbolleiste mit 3 Buttons
+o	Neu
+o	Kopieren
+o	Beenden
+•	Statusleiste vorhanden (zeigt sinnvolle Informationen)
+•	2-spaltiger Hauptbereich
+o	Liste der Objekte
+o	Detailansicht
+________________________________________
+🟢 Aufgabe 2 – Entity & DbContext (10 Punkte)
+•	Model-Klasse mit mindestens 5 Properties
+•	Verwendung von mindestens 3 unterschiedlichen Datentypen
+o	int
+o	string
+o	double / bool / DateTime
+•	DbContext-Klasse (z. B. XYZDbContext)
+•	DbSet<XYZObjekt> vorhanden
+•	(Optional) Default-Werte per Button erzeugbar
+________________________________________
+🟢 Aufgabe 3 – Repository / CRUD (10 Punkte)
+•	Repository-Klasse vorhanden
+•	Methoden implementiert:
+o	Create
+o	Read
+o	Update
+o	Delete
+o	Copy
+o	Search
+•	Suchmethode verwendet eine beliebige Property als Argument
+•	CRUD-Methoden getestet (über ViewModel oder UI)
+________________________________________
+🟢 Aufgabe 4 – ViewModel (10 Punkte)
+•	ViewModel-Klasse vorhanden
+•	ObservableCollection für Objektliste
+•	SelectedItem-Property
+•	Properties und Methoden für die View
+•	Umsetzung nach MVVM-Pattern
+________________________________________
+🟢 Aufgabe 5 – DataBinding & Anzeige (15 Punkte)
+•	ItemsControl (ListBox / ListView) zur Anzeige der Objekte
+•	Detailanzeige bei Auswahl eines Objekts
+•	Sinnvolle Informationen in der Statusleiste
+•	Verbindung:
+o	View ↔ ViewModel
+o	ViewModel ↔ Repository
+o	Repository ↔ DbContext
+________________________________________
+🟢 Aufgabe 6 – Neues Objekt anlegen (15 Punkte)
+•	Dialogfenster zum Anlegen eines neuen Objekts
+•	Öffnen über Menüpunkt „Neu“
+•	Öffnen über Toolbar-Button „Neu“
+•	Speichern fügt Objekt über Repository / ViewModel hinzu
+•	Neues Objekt erscheint im ItemsControl
+________________________________________
+🟢 Aufgabe 7 – Suchen (10 Punkte)
+•	Suchfunktion in der GUI vorhanden
+•	Filterung der Objekte möglich
+•	Umsetzung der Suchfunktion beschrieben
+________________________________________
+🟢 Aufgabe 8 – Löschen (5 Punkte)
+•	Löschfunktion implementiert
+•	Objekt wird aus der Liste entfernt
+•	Umsetzung der Löschfunktion beschrieben
+________________________________________
+🟢 Aufgabe 9 – Kopieren (5 Punkte)
+•	Kopierfunktion implementiert
+•	Neues Objekt wird aus bestehendem erzeugt
+•	Umsetzung der Kopierfunktion beschrieben
+________________________________________
+🟢 Aufgabe 10 – Tooltip & weitere Controls (5 Punkte)
+•	Mindestens zwei der folgenden Controls verwendet:
+o	Tooltip
+o	Slider
+o	Checkbox
+o	Radiobutton
+o	Expander
+o	GroupBox
+o	Calendar
+•	Entitätsklasse bei Bedarf erweitert
+________________________________________
+🟢 Aufgabe 11 – Styles (5 Punkte)
+•	Styles definiert
+•	Aussehen von Controls angepasst
+

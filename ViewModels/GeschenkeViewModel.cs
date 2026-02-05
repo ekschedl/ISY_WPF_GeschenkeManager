@@ -11,22 +11,29 @@ using System.Windows.Input;
 
 namespace SchedlbergerEkaterina_WPF_.ViewModels
 {
+    // ViewModel für Geschenke-Verwaltung
+    // Implementiert INotifyPropertyChanged für automatische UI-Updates
     public class GeschenkeViewModel : INotifyPropertyChanged
     {
-        // ************* INotifyPropertyChanged 
+        // INotifyPropertyChanged - für Datenbindung
+        // Event wird ausgelöst, wenn sich eine Property ändert
         public event PropertyChangedEventHandler PropertyChanged;
+
+        // Hilfsmethode zum Auslösen des PropertyChanged-Events
         private void OnPropertyChanged(string p)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(p));
 
 
-        // ************* Repository für Datenzugriff
+        // Repository für Datenzugriff
+        // readonly = kann nur im Konstruktor gesetzt werden
         private readonly GeschenkeRepository _rep = new GeschenkeRepository();
 
 
-        // Collections
+        // Alle Geschenke komplette Liste
         public ObservableCollection<Geschenk> MeineGeschenke { get; set; }
             = new ObservableCollection<Geschenk>();
 
+        // Gefilterte Geschenke
         public ObservableCollection<Geschenk> MeineGeschenkeFiltered { get; set; }
             = new ObservableCollection<Geschenk>();
 
@@ -123,11 +130,10 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
             set { _preis = value; OnPropertyChanged(nameof(Preis)); }
         }
 
+        // Berechnet die Anzahl der gefilterten Geschenke und speichert Ergebnis in String
         public string AnzahlGeschenke => $"Geschenke total: {MeineGeschenkeFiltered.Count}";
 
-        // Commands
-        // =========================
-       
+        // Commands für UI-Interaktionen (Button-Klicks)
         public ICommand DeleteCommand { get; }
         public ICommand CopyCommand { get; }
         public ICommand EditCommand { get; }
@@ -155,13 +161,15 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
             LoadData();
         }
 
-        // Hilfsmethoden Anzahl Geschenke für Anzeige im View
+        // Lädt Daten aus Repository und aktualisiert die Anzeige
         public void LoadData()
         {
+            // Alle Geschenke aus Repository laden
             MeineGeschenke.Clear();
             foreach (var g in _rep.ReadAll())
                 MeineGeschenke.Add(g);
 
+            // Filter anwenden (zeigt gefilterte Liste)
             Suchen();
 
             // Automatisch das erste Geschenk auswählen, wenn Geschenke vorhanden sind
@@ -170,10 +178,11 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
                 AusgewGeschenk = MeineGeschenkeFiltered[0];
             }
 
+            // Anzahl aktualisieren (UI wird benachrichtigt)
             OnPropertyChanged(nameof(AnzahlGeschenke));
         }
 
-        // Hilfsmethoden für Formularfelder
+        // Formularfelder leeren
         private void ClearForm()
         {
             NeuerName = "";
@@ -183,9 +192,10 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
             Preis = 0.0;
         }
 
-        // ******** Logik, Methoden für Commands ********
+        // Fügt neues Geschenk hinzu
         public void Add()
         {
+            // Neues Geschenk im Repository speichern
             _rep.AddGeschenk(new Geschenk
             {
                 Name = NeuerName,
@@ -196,16 +206,24 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
                 Erstellungsdatum = DateTime.Now
             });
 
+            // Daten neu laden 
             LoadData();
+
+            // Erfolgsmeldung anzeigen
             UserMessage = "✅ Geschenk wurde hinzugefügt";
+            // Nach 3 Sekunden Meldung automatisch wieder löschen
             Task.Delay(3000).ContinueWith(_ => UserMessage = "");
 
+            // Editmodus zurücksetzen und Formular leeren
             IstEditModus = false;
             ClearForm();
         }
 
-        public void Delete()
+        // Löscht ausgewähltes Geschenk
+            public void Delete()
         {
+
+            // Prüfen, ob überhaupt ein Geschenk ausgewählt ist
             if (AusgewGeschenk == null)
             {
                 UserMessage = "⚠️ Bitte zuerst ein Geschenk auswählen";
@@ -213,8 +231,13 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
                 return;
             }
 
+            // Geschenk aus Repository löschen
             _rep.RemoveGeschenk(AusgewGeschenk.GeschenkId);
+
+            // Daten neu laden 
             LoadData();
+
+            // Erfolgsmeldung anzeigen
             UserMessage = "🗑️ Geschenk wurde gelöscht";
             Task.Delay(3000).ContinueWith(_ => UserMessage = "");
         }
@@ -229,56 +252,71 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
                 return;
             }
 
+            // Geschenk merken (damit wir später wissen, welches bearbeitet wird)
             _editGeschenk = AusgewGeschenk;
 
+            // Daten des Geschenks ins Formular kopieren
             NeuerName = _editGeschenk.Name;
             NeuePrioritaet = _editGeschenk.Prioritaet;
             NeuesBild = _editGeschenk.Bild;
             IstWichtig = _editGeschenk.IstWichtig;
             Preis = _editGeschenk.Preis;
 
+            // Editmodus aktivieren
             IstEditModus = true;
         }
-
+        // Speichert Änderungen am bearbeiteten Geschenk
         public void SaveEdit()
         {
             if (_editGeschenk == null) return;
 
+            // Änderungen vom Formular ins Geschenk übernehmen
             _editGeschenk.Name = NeuerName;
             _editGeschenk.Prioritaet = NeuePrioritaet;
             _editGeschenk.Bild = NeuesBild;
             _editGeschenk.IstWichtig = IstWichtig;
             _editGeschenk.Preis = Preis;
+            // Im Repository speichern
             _rep.UpdateGeschenk(_editGeschenk);
 
+            // Erfolgsmeldung anzeigen
             UserMessage = "✏️ Änderungen wurden gespeichert";
             Task.Delay(3000).ContinueWith(_ => UserMessage = "");
 
+            // Editmodus zurücksetzen
             IstEditModus = false;
             _editGeschenk = null;
+
+            // Daten neu laden (zeigt die Änderungen in der Liste)
             LoadData();
+            // Formular leeren
             ClearForm();
         }
 
+        // Sucht nach Geschenken
         public void Suchen()
         {
             // Verwendet Repository Variante 1: SearchByName (nach Name suchen)
             var ergebnis = _rep.SearchByName(Suchtext);
 
+            // Gefilterte Liste aktualisieren
             MeineGeschenkeFiltered.Clear();
             foreach (var g in ergebnis)
                 MeineGeschenkeFiltered.Add(g);
 
-            // Anzahl aktualisieren
+            // Anzahl aktualisieren (UI wird benachrichtigt)
             OnPropertyChanged(nameof(AnzahlGeschenke));
         }
 
-        // Suche nach "super wichtigen" Geschenken - verwendet Repository Variante 2: Search()
+
+        // Suche nach "super wichtigen" Geschenken
+        // Verwendet Repository Variante 2: Search() mit Lambda-Ausdruck
         public void SucheSuperWichtige()
         {
             // Verwendet Repository Variante 2: Search() mit beliebiger Property (Prioritaet)
             var ergebnis = _rep.Search(g => g.Prioritaet == "super wichtig");
 
+            // Gefilterte Liste aktualisieren
             MeineGeschenkeFiltered.Clear();
             foreach (var g in ergebnis)
                 MeineGeschenkeFiltered.Add(g);
@@ -286,6 +324,7 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
             // Anzahl aktualisieren
             OnPropertyChanged(nameof(AnzahlGeschenke));
 
+            // Erfolgsmeldung anzeigen
             UserMessage = "⭐ Super wichtige Geschenke gefunden";
             Task.Delay(3000).ContinueWith(_ => UserMessage = "");
         }
@@ -297,39 +336,54 @@ namespace SchedlbergerEkaterina_WPF_.ViewModels
             Suchtext = "";
         }
 
-
+        // Kopiert das ausgewählte Geschenk
         public void Copy()
         {
+            // Prüfen, ob überhaupt ein Geschenk ausgewählt ist
             if (AusgewGeschenk == null)
             {
                 UserMessage = "⚠️ Bitte zuerst ein Geschenk auswählen";
                 Task.Delay(3000).ContinueWith(_ => UserMessage = "");
                 return;
             }
+
+            // Kopie erstellen (Repository erstellt neues Geschenk mit gleichen Daten)
             var kopie = _rep.Copy(AusgewGeschenk);
 
+            // Daten neu laden (Kopie erscheint in der Liste)
             LoadData();
+
+            // Kopie automatisch auswählen
             AusgewGeschenk = kopie;
+
+            // Erfolgsmeldung anzeigen
             UserMessage = "📄 Geschenk wurde kopiert";
             Task.Delay(3000).ContinueWith(_ => UserMessage = "");
         }
 
-
+        // Erstellt eine neue leere Liste (löscht alle Geschenke)
         public void NewList()
         {
             // Neue Liste bedeutet: bisherige Geschenke verwerfen
             // und mit einer leeren Sammlung neu starten
 
+            // Alle Geschenke im Repository löschen
             _rep.DeleteAll();
+
+            // Listen leeren
             MeineGeschenke.Clear();
             MeineGeschenkeFiltered.Clear();
+
+            // Auswahl zurücksetzen
             AusgewGeschenk = null;
 
+            // Erfolgsmeldung anzeigen
             UserMessage = "📂 Neue Geschenke-Zentrale gestartet";
             Task.Delay(3000).ContinueWith(_ => UserMessage = "");
+
+            // Anzahl aktualisieren (zeigt "Geschenke total: 0")
             OnPropertyChanged(nameof(AnzahlGeschenke));
         }
-
 
     }
 }

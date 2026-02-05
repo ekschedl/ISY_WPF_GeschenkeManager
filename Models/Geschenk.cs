@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace SchedlbergerEkaterina_WPF_.Models
 {
+    // Model für ein Geschenk
+    // Enthält  Properties 
     public class Geschenk
     {
 

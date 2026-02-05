@@ -50,10 +50,7 @@
                                FontSize="48"
                                HorizontalAlignment="Center"/>
                 
-                <!-- Bild -->
-                <Image Source="Images/katze.jpg" Height="50" 
-                       HorizontalAlignment="Center"
-                       Margin="0,10,0,10"/>
+             
 
                 <!-- Titel -->
                 <TextBlock Text="GeschenkeManager"
@@ -83,26 +80,21 @@
                            HorizontalAlignment="Center"/>
                 </Border>
 
-                <!-- Expander Beispiel -->
-                <Expander Header="Hier mehr Details" 
-                          MaxWidth="260"
-                          Margin="0,0,0,20">
-                    <Button>
-                        <!-- Content ist default Property-->
-                        <StackPanel>
-                            <Image Source="Images/katze.jpg" Height="50" />
-                            <CheckBox Content="Ich bin eine CheckBox" Margin="0,10,0,0"/>
-                        </StackPanel>
-                        <Button.ToolTip>
-                            <!--Property-Element Syntax-->
-                            <StackPanel>
-                                <TextBlock>Hallo ich bin ein ToolTip</TextBlock>
-                                <Image Source="Images/katze.jpg" Height="50" />
-                            </StackPanel>
-                        </Button.ToolTip>
-                    </Button>
-                </Expander>
+                    <!-- Expander Beispiel -->
+                     <Expander Header="Was passiert mit meinen Daten?"
+                              MaxWidth="260"
+                              Margin="0,0,0,20">
 
+                                <StackPanel>
+                                    <TextBlock Text="Deine Angaben werden nur in diesem Programm gespeichert und nicht weitergegeben."
+                               TextWrapping="Wrap"
+                               Margin="0,0,0,8"/>
+
+                                    <CheckBox Content="Ich habe das verstanden"
+                              Margin="0,6,0,0"/>
+                                </StackPanel>
+
+                </Expander>
             </StackPanel>
 
         </Grid>
